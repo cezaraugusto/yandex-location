@@ -5,7 +5,7 @@
     "url": "https://github.com/cezaraugusto/yandex-location.git"
   },
   "name": "yandex-location",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Approximates the current location of the Yandex browser across platforms.",
   "homepage": "https://www.npmjs.com/package/yandex-location",
   "type": "module",
