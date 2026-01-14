@@ -18,11 +18,9 @@
   },
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "bin": {
-    "yandex-location": "bin.js"
+    "yandex-location": "bin.cjs"
   },
   "scripts": {
     "build": "rslib build",
@@ -50,7 +48,6 @@
     "guesstimate"
   ],
   "dependencies": {
-    "userhome": "^1.0.0",
     "which": "^2.0.2"
   },
   "devDependencies": {
