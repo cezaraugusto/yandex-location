@@ -1,4 +1,4 @@
-import { expect, test, describe } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import yandexLocation from '../src/index';
 
 describe('yandex-location module', () => {

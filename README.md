@@ -87,6 +87,11 @@ Returns the first existing path found (given selected channels), or <code>null</
 
 ```js
 import yandexLocation from "yandex-location";
+import {
+  locateYandexOrExplain,
+  getInstallGuidance,
+  getYandexVersion
+} from "yandex-location";
 
 // Strict (Stable only)
 console.log(yandexLocation());
@@ -95,6 +100,21 @@ console.log(yandexLocation());
 // Enable fallback (Stable / Beta)
 console.log(yandexLocation(true));
 // => first found among Stable/Beta or null
+
+// Throw with a friendly guide when not found
+try {
+  const bin = locateYandexOrExplain({allowFallback: true});
+  console.log(bin);
+
+  // Cross-platform version (no exec by default)
+  console.log(getYandexVersion(bin)); // e.g. "24.12.0.0" or null
+
+  // Opt-in: allow executing the binary (Linux/other)
+  console.log(getYandexVersion(bin, {allowExec: true}));
+} catch (e) {
+  console.error(String(e));
+  // Or print getInstallGuidance() explicitly
+}
 ```
 
 **Via CLI:**
@@ -105,14 +125,37 @@ npx yandex-location
 
 npx yandex-location --fallback
 # Enable cascade (Stable / Beta)
+
+# Respect environment overrides
+YANDEX_BINARY=/custom/path/to/yandex npx yandex-location
+
+# Print browser version (empty + exit code 2 if unavailable)
+npx yandex-location --yandex-version
+npx yandex-location --browser-version
+
+# Opt-in: allow executing the binary to fetch version
+npx yandex-location --browser-version --allow-exec
 ```
+
+### Environment overrides
+
+If this environment variable is set and points to an existing binary, it takes precedence:
+
+- `YANDEX_BINARY`
+
+## API
+
+- `default export locateYandex(allowFallback?: boolean): string | null`
+- `locateYandexOrExplain(options?: boolean | { allowFallback?: boolean }): string`
+- `getYandexVersion(bin: string, opts?: { allowExec?: boolean }): string | null`
+- `getInstallGuidance(): string`
 
 ## Related projects
 
 * [brave-location](https://github.com/cezaraugusto/brave-location)
-* [chrome-location](https://github.com/cezaraugusto/chrome-location)
+* [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
 * [edge-location](https://github.com/cezaraugusto/edge-location)
-* [firefox-location](https://github.com/cezaraugusto/firefox-location)
+* [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
 * [opera-location](https://github.com/cezaraugusto/opera-location)
 * [vivaldi-location](https://github.com/cezaraugusto/vivaldi-location)
 
