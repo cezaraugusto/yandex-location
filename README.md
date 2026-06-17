@@ -1,4 +1,4 @@
-[npm-version-image]: https://img.shields.io/npm/v/yandex-location.svg?color=ffcc00
+[npm-version-image]: https://img.shields.io/npm/v/yandex-location.svg?color=0971fe
 [npm-version-url]: https://www.npmjs.com/package/yandex-location
 [npm-downloads-image]: https://img.shields.io/npm/dm/yandex-location.svg?color=2ecc40
 [npm-downloads-url]: https://www.npmjs.com/package/yandex-location
