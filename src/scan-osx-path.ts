@@ -1,26 +1,29 @@
-import fs from 'node:fs';
-import os from 'node:os';
-import path from 'node:path';
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
 
-type FsLike = { existsSync: (path: string) => boolean };
-type Deps = { fs?: FsLike; userhome?: (path: string) => string };
+type FsLike = {existsSync: (path: string) => boolean}
+type Deps = {fs?: FsLike; userhome?: (path: string) => string}
 
-export default function scanOsxPath(allowFallback = false, deps?: Deps) {
-  const f: FsLike = deps?.fs ?? fs;
+export default function scanOsxPath (allowFallback = false, deps?: Deps) {
+  const f: FsLike = deps?.fs ?? fs
   const uh =
-    deps?.userhome ?? ((p: string) => path.join(os.homedir(), String(p)));
-  const apps = [{ app: 'Yandex.app', exec: 'Yandex' }];
+    deps?.userhome ?? ((p: string) => path.join(os.homedir(), String(p)))
 
-  const systemBase = '/Applications';
-  const userBase = uh('Applications');
+  const apps = [{app: 'Yandex.app', exec: 'Yandex'}]
 
-  for (const { app, exec } of apps) {
-    const systemPath = `${systemBase}/${app}/Contents/MacOS/${exec}`;
-    if (f.existsSync(systemPath)) return systemPath;
+  const systemBase = '/Applications'
+  const userBase = uh('Applications')
 
-    const userPath = `${userBase}/${app}/Contents/MacOS/${exec}`;
-    if (f.existsSync(userPath)) return userPath;
+  for (const {app, exec} of apps) {
+    const systemPath = `${systemBase}/${app}/Contents/MacOS/${exec}`
+
+    if (f.existsSync(systemPath)) return systemPath
+
+    const userPath = `${userBase}/${app}/Contents/MacOS/${exec}`
+
+    if (f.existsSync(userPath)) return userPath
   }
 
-  return null;
+  return null
 }
