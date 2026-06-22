@@ -11,9 +11,15 @@
 
 <img alt="Yandex" align="right" src="https://cdn.jsdelivr.net/gh/extension-js/media@9ef31f005a0192907d9f6405838e43776aca2124/browser_logos/svg/yandex.svg" width="10.5%" />
 
-* By default checks only `stable`. Optionally can cascade to `beta`.
-* Supports macOS / Windows / Linux
-* Works both as an ES module or CommonJS
+- By default checks only `stable`. Optionally can cascade to `beta`.
+- Supports macOS / Windows / Linux
+- Works both as an ES module or CommonJS
+
+## Installation
+
+```bash
+npm i yandex-location
+```
 
 ## Support table
 
@@ -86,35 +92,42 @@ Returns the first existing path found (given selected channels), or <code>null</
 **Via Node.js (strict by default):**
 
 ```js
-import yandexLocation from "yandex-location";
+import yandexLocation from 'yandex-location'
 import {
   locateYandexOrExplain,
   getInstallGuidance,
   getYandexVersion
-} from "yandex-location";
+} from 'yandex-location'
 
 // Strict (Stable only)
-console.log(yandexLocation());
+console.log(yandexLocation())
 // => "/Applications/Yandex.app/Contents/MacOS/Yandex" or null
 
 // Enable fallback (Stable / Beta)
-console.log(yandexLocation(true));
+console.log(yandexLocation(true))
 // => first found among Stable/Beta or null
 
 // Throw with a friendly guide when not found
 try {
-  const bin = locateYandexOrExplain({allowFallback: true});
-  console.log(bin);
+  const bin = locateYandexOrExplain({allowFallback: true})
+  console.log(bin)
 
   // Cross-platform version (no exec by default)
-  console.log(getYandexVersion(bin)); // e.g. "24.12.0.0" or null
+  console.log(getYandexVersion(bin)) // e.g. "24.12.0.0" or null
 
   // Opt-in: allow executing the binary (Linux/other)
-  console.log(getYandexVersion(bin, {allowExec: true}));
+  console.log(getYandexVersion(bin, {allowExec: true}))
 } catch (e) {
-  console.error(String(e));
+  console.error(String(e))
   // Or print getInstallGuidance() explicitly
 }
+```
+
+**CommonJS:**
+
+```js
+const api = require('yandex-location')
+const locateYandex = api.default || api
 ```
 
 **Via CLI:**
@@ -152,12 +165,16 @@ If this environment variable is set and points to an existing binary, it takes p
 
 ## Related projects
 
-* [brave-location](https://github.com/cezaraugusto/brave-location)
-* [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
-* [edge-location](https://github.com/cezaraugusto/edge-location)
-* [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
-* [opera-location](https://github.com/cezaraugusto/opera-location)
-* [vivaldi-location](https://github.com/cezaraugusto/vivaldi-location)
+- [brave-location](https://github.com/cezaraugusto/brave-location)
+- [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
+- [chromium-location](https://github.com/cezaraugusto/chromium-location)
+- [edge-location](https://github.com/cezaraugusto/edge-location)
+- [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
+- [safari-location2](https://github.com/cezaraugusto/safari-location2)
+- [opera-location2](https://github.com/cezaraugusto/opera-location2)
+- [vivaldi-location2](https://github.com/cezaraugusto/vivaldi-location2)
+- [waterfox-location](https://github.com/cezaraugusto/waterfox-location)
+- [librewolf-location](https://github.com/cezaraugusto/librewolf-location)
 
 ## License
 
