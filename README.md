@@ -107,7 +107,7 @@ console.log(yandexLocation())
 console.log(yandexLocation(true))
 // => first found among Stable/Beta or null
 
-// Throw with a friendly guide when not found
+// Throw with an install guide when not found
 try {
   const bin = locateYandexOrExplain({allowFallback: true})
   console.log(bin)
