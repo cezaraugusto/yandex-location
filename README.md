@@ -4,10 +4,12 @@
 [npm-downloads-url]: https://www.npmjs.com/package/yandex-location
 [action-image]: https://github.com/cezaraugusto/yandex-location/actions/workflows/ci.yml/badge.svg?branch=main
 [action-url]: https://github.com/cezaraugusto/yandex-location/actions
+[npm-provenance-image]: https://img.shields.io/badge/provenance-verified-0971fe?logo=npm&logoColor=white
+[npm-provenance-url]: https://www.npmjs.com/package/yandex-location
 
 > Approximates the current location of the Yandex browser across platforms.
 
-# yandex-location [![Version][npm-version-image]][npm-version-url] [![Downloads][npm-downloads-image]][npm-downloads-url] [![workflow][action-image]][action-url]
+# yandex-location [![Version][npm-version-image]][npm-version-url] [![Downloads][npm-downloads-image]][npm-downloads-url] [![workflow][action-image]][action-url] [![Provenance][npm-provenance-image]][npm-provenance-url]
 
 <img alt="Yandex" align="right" src="https://cdn.jsdelivr.net/gh/extension-js/media@9ef31f005a0192907d9f6405838e43776aca2124/browser_logos/svg/yandex.svg" width="10.5%" />
 
