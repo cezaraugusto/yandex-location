@@ -62,7 +62,7 @@ export function getInstallGuidance (): string {
     '1) Install Yandex Browser from the official site',
     '   (or install via your system package manager where available)',
     '',
-    "Then re-run your command , we'll detect it automatically.",
+    "Then re-run your command, and we'll detect it automatically.",
     '',
     'Alternatively, set YANDEX_BINARY=/path/to/yandex and re-run.'
   ].join('\n')
